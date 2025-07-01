@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan; // Importação correta
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegistrationController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TicketManualController;
 
+// Rotas existentes do projeto
 Route::get('/', [EventController::class, 'index'])->name('events.index');
 Route::get('/evento/criacao', [EventController::class, 'create'])->middleware('auth');
 Route::post('/eventos', [EventController::class, 'store']);
@@ -35,6 +37,28 @@ Route::post('/payment/{eventId}', [PaymentController::class, 'process'])->name('
 Route::get('/ticket/manual/{eventId}', [TicketManualController::class, 'showManualForm'])->name('ticket.manual.form')->middleware('auth');
 Route::post('/ticket/manual/{eventId}', [TicketManualController::class, 'createManualTicket'])->name('ticket.manual')->middleware('auth');
 
+// Rotas de saúde e manutenção (temporárias)
 Route::get('/healthz', function () {
     return response()->json(['status' => 'ok'], 200);
+});
+
+Route::get('/run-migrations', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return 'Migrações executadas com sucesso!';
+    } catch (\Exception $e) {
+        return 'Erro nas migrações: ' . $e->getMessage();
+    }
+})->name('migrate');
+
+Route::get('/generate-key', function () {
+    $key = \Illuminate\Support\Str::random(32);
+    return 'Nova chave gerada: base64:' . base64_encode($key) . '. Atualize o APP_KEY no Render.';
+});
+
+Route::get('/optimize', function () {
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
+    return 'Aplicação otimizada!';
 });
