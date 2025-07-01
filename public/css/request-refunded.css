@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.title-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.paragrafo {
+    margin: 20px 0;
+}
+
+.btn-secondary-request {
+    background-color: #5a5858;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.btn-secondary-request:hover {
+    background-color: #545252;
+}
+
+.btn-primary-request {
+    background-color: #f28c38;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    font-weight: bold;
+}

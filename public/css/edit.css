@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/* EDIÇÃO DE  JOGOS */
+.event-create-container {
+    padding: 30px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 12px;
+}
+
+.img-preview {
+    width: 400px;
+    height: 200px;
+     display: block; 
+     margin: auto;
+     margin-top: 15px;
+     margin-bottom: 15px;
+}

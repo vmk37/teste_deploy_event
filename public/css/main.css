@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #F9FAFB;
+    color: #1F2937;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header .navbar-brand img {
+    max-width: 190px;
+    width: 100%;
+    height: auto;
+    transition: max-width 0.3s ease;
+}
+
+header .navbar-nav .nav-link {
+    position: relative;
+    font-size: 16px;
+    color: #1F2937;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 0%;
+    height: 2px;
+    background-color: #F59E0B;
+    transition: width 0.3s ease;
+}
+
+header .navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 991.98px) {
+    header .navbar-brand img {
+        max-width: 170px;
+    }
+
+    header .navbar-nav {
+        text-align: center;
+    }
+
+    header .navbar-nav .nav-item {
+        margin: 5px 0;
+    }
+
+    header .navbar-nav .nav-link {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    header .navbar-toggler {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 575.98px) {
+    header .navbar-brand img {
+        max-width: 160px;
+    }
+}
+
+
+#navbar {
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 5px 0;
+}
+
+/* Ajustes gerais */
+main {
+    flex: 1;
+}
+
+.row {
+    margin: 0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+a,
+.btn,
+.btn-primary {
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #F2A340;
+    border: 2px solid #c28008;
+    color: white;
+    padding: 5px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c28008;
+    border-color: #c28008;
+    color: white;
+}
+
+/* Mensagens */
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}

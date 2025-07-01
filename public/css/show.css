@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+/* Página de exibição de jogos */
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+#image-container img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 10px;
+    border: 2px solid #cccccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+#image-container img:hover {
+    transform: scale(1.01);
+}
+
+#info-container h1 {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #1F2937;
+}
+
+#info-container p {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    color: #4B5563;
+    margin-bottom: 0.5rem;
+}
+
+#info-container h3,
+#description-container h3,
+.event-participants h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1F2937;
+}
+
+#info-container ion-icon {
+    font-size: 1.25rem;
+    color: #F59E0B;
+    margin-right: 0.5rem;
+}
+
+.event-submit {
+    margin: 1.5rem 0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    background:#133183;
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.event-submit:hover {
+    background: #114ba8;
+}
+
+.event-products ul li ion-icon {
+    font-size: 1rem;
+    color: #28a745;
+}
+
+#description-container {
+    margin-top: 2rem;
+}
+
+.event-description {
+    font-size: 1rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    #image-container img {
+        max-height: 300px;
+    }
+
+    #info-container h1 {
+        font-size: 1.75rem;
+    }
+
+    #info-container h3,
+    #description-container h3,
+    .event-participants h3 {
+        font-size: 1.125rem;
+    }
+
+    #info-container p {
+        font-size: 0.8rem;
+    }
+
+    #info-container ion-icon {
+        font-size: 1rem;
+    }
+
+    .event-submit {
+        width: 60%;
+        text-align: center;
+         margin-left: 10px
+    }
+
+    .event-products ul,
+    .event-participants ul {
+        padding-left: 0;
+    }
+
+    .event-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #image-container img {
+        max-height: 250px;
+        
+    }
+
+    #info-container h1 {
+        font-size: 1.5rem;
+    }
+
+     .event-submit {
+        width: 60%;
+        text-align: center;
+        margin-left: 100px
+    }
+
+    .alert {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+        
+    }
+}
