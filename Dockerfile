@@ -1,3 +1,4 @@
+# Use a imagem oficial do PHP 8.2 com FPM
 FROM php:8.2-fpm
 
 # Instalar dependências do sistema
@@ -36,7 +37,7 @@ WORKDIR /var/www
 COPY . .
 
 # Instalar dependências do Composer
-RUN composer install --optimize-autoloader --no-dev
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Instalar dependências do Node.js e compilar assets
 RUN npm install
