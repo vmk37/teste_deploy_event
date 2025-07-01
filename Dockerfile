@@ -1,4 +1,4 @@
-# Use a imagem oficial do PHP 8.2 com FPM
+# Use a imagem base com PHP 8.2 e FPM
 FROM php:8.2-fpm
 
 # Instalar dependências do sistema
@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libxml2-dev \
-    libzip-dev
+    libzip-dev \
+    nginx
 
 # Instalar extensões PHP
 RUN docker-php-ext-install \
@@ -51,8 +52,11 @@ RUN npm run build
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 755 /var/www/storage
 
-# Expor a porta
-EXPOSE 9000
+# Copiar configuração do Nginx
+COPY docker/nginx.conf /etc/nginx/sites-available/default
 
-# Comando para iniciar o PHP-FPM
-CMD ["php-fpm"]
+# Expor a porta 80 (HTTP)
+EXPOSE 80
+
+# Iniciar PHP-FPM e Nginx
+CMD service nginx start && php-fpm
