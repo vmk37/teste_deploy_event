@@ -12,15 +12,19 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libxml2-dev \
-    libzip-dev \
-    && docker-php-ext-install \
+    libzip-dev
+
+# Instalar extensões PHP
+RUN docker-php-ext-install \
     pdo_mysql \
     mbstring \
     exif \
     pcntl \
     bcmath \
-    zip \
-    && docker-php-ext-configure gd --with-fpm --with-jpeg --with-freetype \
+    zip
+
+# Configurar e instalar a extensão GD
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd
 
 # Instalar Composer
