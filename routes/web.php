@@ -35,7 +35,6 @@ Route::post('/payment/{eventId}', [PaymentController::class, 'process'])->name('
 Route::get('/ticket/manual/{eventId}', [TicketManualController::class, 'showManualForm'])->name('ticket.manual.form')->middleware('auth');
 Route::post('/ticket/manual/{eventId}', [TicketManualController::class, 'createManualTicket'])->name('ticket.manual')->middleware('auth');
 
-//rota render
 Route::get('/healthz', function () {
     return response()->json(['status' => 'ok'], 200);
 });
